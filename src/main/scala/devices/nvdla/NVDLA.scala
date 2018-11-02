@@ -17,7 +17,7 @@ case class NVDLAParams(
   raddress: BigInt
 )
 
-class NVDLA(params: NVDLAParams, val crossing: ClockCrossingType = AsynchronousCrossing(8, 3))(implicit p: Parameters) extends LazyModule with HasCrossing {
+class NVDLA(params: NVDLAParams)(implicit p: Parameters) extends LazyModule {
 
   val blackboxName = "nvdla_" + params.config
   val hasSecondAXI = params.config == "large"
@@ -87,7 +87,7 @@ class NVDLA(params: NVDLAParams, val crossing: ClockCrossingType = AsynchronousC
     val u_nvdla = Module(new nvdla(blackboxName, hasSecondAXI, dataWidthAXI))
 
     u_nvdla.io.core_clk    := clock
-    u_nvdla.io.csb_clk     := clock
+    //u_nvdla.io.csb_clk     := clock
     u_nvdla.io.rstn        := ~reset
     u_nvdla.io.csb_rstn    := ~reset
 

@@ -12,7 +12,7 @@ class nvdla(blackboxName: String, hasSecondAXI: Boolean, dataWidthAXI: Int) exte
   val io = new Bundle {
 
     val core_clk = Clock(INPUT)
-    val csb_clk = Clock(INPUT)
+    //val csb_clk = Clock(INPUT)
     val rstn = Bool(INPUT)
     val csb_rstn = Bool(INPUT)
 
