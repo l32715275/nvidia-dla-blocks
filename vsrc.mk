@@ -9,6 +9,7 @@ NVDLA_LARGE_VSRCS := \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/vlibs/MUX2HDD2.v \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/vlibs/NV_BLKBOX_SINK.v \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/vlibs/NV_BLKBOX_SRC0.v \
+	$(nvdla_blocks_dir)/vsrc/large/vmod/vlibs/nv_assert_no_x.vlib \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/vlibs/NV_CLK_gate_power.v \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cacc/NV_NVDLA_CACC_CALC_int8.v \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cacc/NV_NVDLA_CACC_assembly_buffer.v \
