@@ -44,7 +44,7 @@ class NVDLA(params: NVDLAParams)(implicit p: Parameters) extends LazyModule {
     := AXI4ToTL()
     := AXI4UserYanker(capMaxFlight=Some(8))
     := AXI4Fragmenter()
-    := AXI4IdIndexer(idBits=2)
+    := AXI4IdIndexer(idBits=3)
     := AXI4Buffer()
     := dbb_axi_node)
 
