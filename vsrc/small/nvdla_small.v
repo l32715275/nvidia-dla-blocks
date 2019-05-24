@@ -9,7 +9,7 @@
 module nvdla_small
 (
     input core_clk,
-    input csb_clk,
+//    input csb_clk,
     input rstn,
     input csb_rstn,
 
@@ -59,6 +59,8 @@ wire        m_csb2nvdla_nposted;
 wire        m_nvdla2csb_valid;
 wire [31:0] m_nvdla2csb_data;
 
+wire csb_clk;
+assign csb_clk = core_clk;
 
 NV_NVDLA_apb2csb apb2csb (
    .pclk                  (csb_clk)
