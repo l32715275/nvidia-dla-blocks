@@ -75,16 +75,8 @@ NVDLA_LARGE_VSRCS := \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cdp/NV_NVDLA_CDP_slcg.v \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cdp/NV_NVDLA_CDP_wdma.v \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cfgrom/NV_NVDLA_CFGROM_rom.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_active.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_cfg.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_mac.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_rt_in.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_rt_out.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_slcg.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_REG_dual.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_REG_single.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_core.v \
-	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_NVDLA_CMAC_reg.v \
+	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/NV_soDLA_cmac.v \
+	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/cmac/wrapper.v \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/csb_master/NV_NVDLA_CSB_MASTER_csb2falcon_fifo.v \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/csb_master/NV_NVDLA_CSB_MASTER_falcon2csb_fifo.v \
 	$(nvdla_blocks_dir)/vsrc/large/vmod/nvdla/csc/NV_NVDLA_CSC_SG_dat_fifo.v \
