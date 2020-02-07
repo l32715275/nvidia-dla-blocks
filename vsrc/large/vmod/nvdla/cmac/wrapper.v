@@ -2,7 +2,8 @@
 //CMAC_ATOMC==64
 //CMAC_ATOMK==32
 //CMAC_ATOMK_HALF==32/2
-//
+//CMAC_INPUT_NUM=64
+//CMAC_BPE=8
 module wrapper(
 	//===================same to NV_NVDLA_cmac.v========================
 	 csb2cmac_a_req_pd		//|< i
