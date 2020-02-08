@@ -391,7 +391,7 @@ module NV_NVDLA_CMAC_CORE_mac(
   output        io_mac_out_valid, // @[:@6.4]
   output [21:0] io_mac_out_bits // @[:@6.4]
 );
-NV_NVDLA_CMAC_CORE_mac_origin NV_NVDLA_CMAC_CORE_mac_origin(
+NV_NVDLA_CMAC_CORE_mac_golden NV_NVDLA_CMAC_CORE_mac_golden(
     .nvdla_core_clk(io_nvdla_core_clk),
     .nvdla_core_rstn(io_nvdla_core_rstn),
     .wt_actv_data({io_wt_actv_63_bits_data,io_wt_actv_62_bits_data,io_wt_actv_61_bits_data,io_wt_actv_60_bits_data,
