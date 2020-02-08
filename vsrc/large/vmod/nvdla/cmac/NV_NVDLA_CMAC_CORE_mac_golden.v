@@ -14,7 +14,7 @@
 // this distribution for more information.
 // ================================================================
 // File Name: NV_NVDLA_CMAC.h
-module NV_NVDLA_CMAC_CORE_mac (
+module NV_NVDLA_CMAC_CORE_mac_golden (
    nvdla_core_clk //|< i
   ,nvdla_wg_clk //|< i
   ,nvdla_core_rstn //|< i
