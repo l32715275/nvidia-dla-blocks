@@ -1,298 +1,3 @@
-module NV_NVDLA_BASIC_REG_single( // @[:@3.2]
-  input         reset, // @[:@5.4]
-  input         io_nvdla_core_clk, // @[:@6.4]
-  output [31:0] io_reg_rd_data, // @[:@6.4]
-  input  [11:0] io_reg_offset, // @[:@6.4]
-  input  [31:0] io_reg_wr_data, // @[:@6.4]
-  input         io_reg_wr_en, // @[:@6.4]
-  output        io_producer, // @[:@6.4]
-  input         io_consumer, // @[:@6.4]
-  input  [1:0]  io_status_0, // @[:@6.4]
-  input  [1:0]  io_status_1 // @[:@6.4]
-);
-  wire [31:0] _GEN_1; // @[NV_NVDLA_BASIC_REG_single.scala 46:43:@8.4]
-  wire  _T_24; // @[NV_NVDLA_BASIC_REG_single.scala 46:43:@8.4]
-  wire  _T_25; // @[NV_NVDLA_BASIC_REG_single.scala 46:66:@9.4]
-  wire [31:0] _T_35; // @[Cat.scala 30:58:@14.4]
-  wire [31:0] _T_41; // @[Cat.scala 30:58:@17.4]
-  wire  _T_42; // @[Mux.scala 46:19:@18.4]
-  wire [31:0] _T_43; // @[Mux.scala 46:16:@19.4]
-  wire  _T_44; // @[Mux.scala 46:19:@20.4]
-  wire  _T_46; // @[NV_NVDLA_BASIC_REG_single.scala 59:44:@23.4]
-  reg  _T_49; // @[Reg.scala 19:20:@24.4]
-  reg [31:0] _RAND_0;
-  wire  _GEN_0; // @[Reg.scala 20:19:@25.4]
-  assign _GEN_1 = {{20'd0}, io_reg_offset}; // @[NV_NVDLA_BASIC_REG_single.scala 46:43:@8.4]
-  assign _T_24 = _GEN_1 == 32'h4; // @[NV_NVDLA_BASIC_REG_single.scala 46:43:@8.4]
-  assign _T_25 = _T_24 & io_reg_wr_en; // @[NV_NVDLA_BASIC_REG_single.scala 46:66:@9.4]
-  assign _T_35 = {15'h0,io_consumer,15'h0,io_producer}; // @[Cat.scala 30:58:@14.4]
-  assign _T_41 = {14'h0,io_status_1,14'h0,io_status_0}; // @[Cat.scala 30:58:@17.4]
-  assign _T_42 = 32'h0 == _GEN_1; // @[Mux.scala 46:19:@18.4]
-  assign _T_43 = _T_42 ? _T_41 : 32'h0; // @[Mux.scala 46:16:@19.4]
-  assign _T_44 = 32'h4 == _GEN_1; // @[Mux.scala 46:19:@20.4]
-  assign _T_46 = io_reg_wr_data[0]; // @[NV_NVDLA_BASIC_REG_single.scala 59:44:@23.4]
-  assign _GEN_0 = _T_25 ? _T_46 : _T_49; // @[Reg.scala 20:19:@25.4]
-  assign io_reg_rd_data = _T_44 ? _T_35 : _T_43; // @[NV_NVDLA_BASIC_REG_single.scala 50:20:@22.4]
-  assign io_producer = _T_49; // @[NV_NVDLA_BASIC_REG_single.scala 59:17:@28.4]
-`ifdef RANDOMIZE_GARBAGE_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_INVALID_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_REG_INIT
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-`define RANDOMIZE
-`endif
-`ifndef RANDOM
-`define RANDOM $random
-`endif
-`ifdef RANDOMIZE
-  integer initvar;
-  initial begin
-    `ifdef INIT_RANDOM
-      `INIT_RANDOM
-    `endif
-    `ifndef VERILATOR
-      #0.002 begin end
-    `endif
-  `ifdef RANDOMIZE_REG_INIT
-  _RAND_0 = {1{`RANDOM}};
-  _T_49 = _RAND_0[0:0];
-  `endif // RANDOMIZE_REG_INIT
-  end
-`endif // RANDOMIZE
-  always @(posedge io_nvdla_core_clk) begin
-    if (reset) begin
-      _T_49 <= 1'h0;
-    end else begin
-      if (_T_25) begin
-        _T_49 <= _T_46;
-      end
-    end
-  end
-endmodule
-module NV_NVDLA_CMAC_REG_dual( // @[:@30.2]
-  input         reset, // @[:@32.4]
-  input         io_nvdla_core_clk, // @[:@33.4]
-  output [31:0] io_reg_rd_data, // @[:@33.4]
-  input  [11:0] io_reg_offset, // @[:@33.4]
-  input  [31:0] io_reg_wr_data, // @[:@33.4]
-  input         io_reg_wr_en, // @[:@33.4]
-  output        io_field_conv_mode, // @[:@33.4]
-  output [1:0]  io_field_proc_precision, // @[:@33.4]
-  output        io_op_en_trigger, // @[:@33.4]
-  input         io_op_en // @[:@33.4]
-);
-  wire [31:0] _GEN_2; // @[NV_NVDLA_CMAC_REG_dual.scala 47:57:@35.4]
-  wire  _T_24; // @[NV_NVDLA_CMAC_REG_dual.scala 47:57:@35.4]
-  wire  nvdla_cmac_a_d_misc_cfg_0_wren; // @[NV_NVDLA_CMAC_REG_dual.scala 47:80:@36.4]
-  wire  _T_26; // @[NV_NVDLA_CMAC_REG_dual.scala 48:58:@37.4]
-  wire [31:0] _T_33; // @[Cat.scala 30:58:@42.4]
-  wire [31:0] _T_36; // @[Cat.scala 30:58:@43.4]
-  wire  _T_37; // @[Mux.scala 46:19:@44.4]
-  wire [31:0] _T_38; // @[Mux.scala 46:16:@45.4]
-  wire  _T_39; // @[Mux.scala 46:19:@46.4]
-  wire  _T_41; // @[NV_NVDLA_CMAC_REG_dual.scala 64:51:@49.4]
-  reg  _T_44; // @[Reg.scala 19:20:@50.4]
-  reg [31:0] _RAND_0;
-  wire  _GEN_0; // @[Reg.scala 20:19:@51.4]
-  wire [1:0] _T_45; // @[NV_NVDLA_CMAC_REG_dual.scala 68:56:@55.4]
-  reg [1:0] _T_48; // @[Reg.scala 19:20:@56.4]
-  reg [31:0] _RAND_1;
-  wire [1:0] _GEN_1; // @[Reg.scala 20:19:@57.4]
-  assign _GEN_2 = {{20'd0}, io_reg_offset}; // @[NV_NVDLA_CMAC_REG_dual.scala 47:57:@35.4]
-  assign _T_24 = _GEN_2 == 32'hc; // @[NV_NVDLA_CMAC_REG_dual.scala 47:57:@35.4]
-  assign nvdla_cmac_a_d_misc_cfg_0_wren = _T_24 & io_reg_wr_en; // @[NV_NVDLA_CMAC_REG_dual.scala 47:80:@36.4]
-  assign _T_26 = _GEN_2 == 32'h8; // @[NV_NVDLA_CMAC_REG_dual.scala 48:58:@37.4]
-  assign _T_33 = {18'h0,io_field_proc_precision,11'h0,io_field_conv_mode}; // @[Cat.scala 30:58:@42.4]
-  assign _T_36 = {31'h0,io_op_en}; // @[Cat.scala 30:58:@43.4]
-  assign _T_37 = 32'h8 == _GEN_2; // @[Mux.scala 46:19:@44.4]
-  assign _T_38 = _T_37 ? _T_36 : 32'h0; // @[Mux.scala 46:16:@45.4]
-  assign _T_39 = 32'hc == _GEN_2; // @[Mux.scala 46:19:@46.4]
-  assign _T_41 = io_reg_wr_data[0]; // @[NV_NVDLA_CMAC_REG_dual.scala 64:51:@49.4]
-  assign _GEN_0 = nvdla_cmac_a_d_misc_cfg_0_wren ? _T_41 : _T_44; // @[Reg.scala 20:19:@51.4]
-  assign _T_45 = io_reg_wr_data[13:12]; // @[NV_NVDLA_CMAC_REG_dual.scala 68:56:@55.4]
-  assign _GEN_1 = nvdla_cmac_a_d_misc_cfg_0_wren ? _T_45 : _T_48; // @[Reg.scala 20:19:@57.4]
-  assign io_reg_rd_data = _T_39 ? _T_33 : _T_38; // @[NV_NVDLA_CMAC_REG_dual.scala 54:20:@48.4]
-  assign io_field_conv_mode = _T_44; // @[NV_NVDLA_CMAC_REG_dual.scala 64:24:@54.4]
-  assign io_field_proc_precision = _T_48; // @[NV_NVDLA_CMAC_REG_dual.scala 68:29:@60.4]
-  assign io_op_en_trigger = _T_26 & io_reg_wr_en; // @[NV_NVDLA_CMAC_REG_dual.scala 50:22:@39.4]
-`ifdef RANDOMIZE_GARBAGE_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_INVALID_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_REG_INIT
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-`define RANDOMIZE
-`endif
-`ifndef RANDOM
-`define RANDOM $random
-`endif
-`ifdef RANDOMIZE
-  integer initvar;
-  initial begin
-    `ifdef INIT_RANDOM
-      `INIT_RANDOM
-    `endif
-    `ifndef VERILATOR
-      #0.002 begin end
-    `endif
-  `ifdef RANDOMIZE_REG_INIT
-  _RAND_0 = {1{`RANDOM}};
-  _T_44 = _RAND_0[0:0];
-  `endif // RANDOMIZE_REG_INIT
-  `ifdef RANDOMIZE_REG_INIT
-  _RAND_1 = {1{`RANDOM}};
-  _T_48 = _RAND_1[1:0];
-  `endif // RANDOMIZE_REG_INIT
-  end
-`endif // RANDOMIZE
-  always @(posedge io_nvdla_core_clk) begin
-    if (reset) begin
-      _T_44 <= 1'h0;
-    end else begin
-      if (nvdla_cmac_a_d_misc_cfg_0_wren) begin
-        _T_44 <= _T_41;
-      end
-    end
-    if (reset) begin
-      _T_48 <= 2'h1;
-    end else begin
-      if (nvdla_cmac_a_d_misc_cfg_0_wren) begin
-        _T_48 <= _T_45;
-      end
-    end
-  end
-endmodule
-module NV_NVDLA_CSB_LOGIC( // @[:@94.2]
-  input         reset, // @[:@96.4]
-  input         io_clk, // @[:@97.4]
-  input         io_csb2dp_req_valid, // @[:@97.4]
-  input  [62:0] io_csb2dp_req_bits, // @[:@97.4]
-  output        io_csb2dp_resp_valid, // @[:@97.4]
-  output [33:0] io_csb2dp_resp_bits, // @[:@97.4]
-  input  [31:0] io_reg_rd_data, // @[:@97.4]
-  output [11:0] io_reg_offset, // @[:@97.4]
-  output [31:0] io_reg_wr_data, // @[:@97.4]
-  output        io_reg_wr_en // @[:@97.4]
-);
-  reg  _T_43; // @[NV_NVDLA_CSB_LOGIC.scala 45:27:@99.4]
-  reg [31:0] _RAND_0;
-  reg [62:0] _T_46; // @[NV_NVDLA_CSB_LOGIC.scala 46:25:@100.4]
-  reg [63:0] _RAND_1;
-  wire [62:0] _GEN_0; // @[NV_NVDLA_CSB_LOGIC.scala 49:30:@102.4]
-  wire [21:0] _T_47; // @[NV_NVDLA_CSB_LOGIC.scala 54:26:@105.4]
-  wire  _T_49; // @[NV_NVDLA_CSB_LOGIC.scala 56:27:@107.4]
-  wire  _T_50; // @[NV_NVDLA_CSB_LOGIC.scala 57:29:@108.4]
-  wire [23:0] _T_56; // @[Cat.scala 30:58:@113.4]
-  wire  _T_58; // @[NV_NVDLA_CSB_LOGIC.scala 68:32:@118.4]
-  wire  _T_59; // @[NV_NVDLA_CSB_LOGIC.scala 68:30:@119.4]
-  wire [33:0] _T_63; // @[Cat.scala 30:58:@121.4]
-  reg [33:0] _T_71; // @[NV_NVDLA_CSB_LOGIC.scala 83:37:@124.4]
-  reg [63:0] _RAND_2;
-  reg  _T_74; // @[NV_NVDLA_CSB_LOGIC.scala 84:40:@125.4]
-  reg [31:0] _RAND_3;
-  wire  _T_75; // @[NV_NVDLA_CSB_LOGIC.scala 89:28:@130.6]
-  wire [33:0] _GEN_1; // @[NV_NVDLA_CSB_LOGIC.scala 89:42:@131.6]
-  wire [33:0] _GEN_2; // @[NV_NVDLA_CSB_LOGIC.scala 86:20:@126.4]
-  wire  _T_77; // @[NV_NVDLA_CSB_LOGIC.scala 92:59:@135.4]
-  assign _GEN_0 = io_csb2dp_req_valid ? io_csb2dp_req_bits : _T_46; // @[NV_NVDLA_CSB_LOGIC.scala 49:30:@102.4]
-  assign _T_47 = _T_46[21:0]; // @[NV_NVDLA_CSB_LOGIC.scala 54:26:@105.4]
-  assign _T_49 = _T_46[54]; // @[NV_NVDLA_CSB_LOGIC.scala 56:27:@107.4]
-  assign _T_50 = _T_46[55]; // @[NV_NVDLA_CSB_LOGIC.scala 57:29:@108.4]
-  assign _T_56 = {_T_47,2'h0}; // @[Cat.scala 30:58:@113.4]
-  assign _T_58 = ~ _T_49; // @[NV_NVDLA_CSB_LOGIC.scala 68:32:@118.4]
-  assign _T_59 = _T_43 & _T_58; // @[NV_NVDLA_CSB_LOGIC.scala 68:30:@119.4]
-  assign _T_63 = {2'h0,io_reg_rd_data}; // @[Cat.scala 30:58:@121.4]
-  assign _T_75 = io_reg_wr_en & _T_50; // @[NV_NVDLA_CSB_LOGIC.scala 89:28:@130.6]
-  assign _GEN_1 = _T_75 ? 34'h200000000 : _T_71; // @[NV_NVDLA_CSB_LOGIC.scala 89:42:@131.6]
-  assign _GEN_2 = _T_59 ? _T_63 : _GEN_1; // @[NV_NVDLA_CSB_LOGIC.scala 86:20:@126.4]
-  assign _T_77 = _T_75 | _T_59; // @[NV_NVDLA_CSB_LOGIC.scala 92:59:@135.4]
-  assign io_csb2dp_resp_valid = _T_74; // @[NV_NVDLA_CSB_LOGIC.scala 95:26:@138.4]
-  assign io_csb2dp_resp_bits = _T_71; // @[NV_NVDLA_CSB_LOGIC.scala 94:25:@137.4]
-  assign io_reg_offset = _T_56[11:0]; // @[NV_NVDLA_CSB_LOGIC.scala 65:19:@114.4]
-  assign io_reg_wr_data = _T_46[53:22]; // @[NV_NVDLA_CSB_LOGIC.scala 66:20:@115.4]
-  assign io_reg_wr_en = _T_43 & _T_49; // @[NV_NVDLA_CSB_LOGIC.scala 67:18:@117.4]
-`ifdef RANDOMIZE_GARBAGE_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_INVALID_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_REG_INIT
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-`define RANDOMIZE
-`endif
-`ifndef RANDOM
-`define RANDOM $random
-`endif
-`ifdef RANDOMIZE
-  integer initvar;
-  initial begin
-    `ifdef INIT_RANDOM
-      `INIT_RANDOM
-    `endif
-    `ifndef VERILATOR
-      #0.002 begin end
-    `endif
-  `ifdef RANDOMIZE_REG_INIT
-  _RAND_0 = {1{`RANDOM}};
-  _T_43 = _RAND_0[0:0];
-  `endif // RANDOMIZE_REG_INIT
-  `ifdef RANDOMIZE_REG_INIT
-  _RAND_1 = {2{`RANDOM}};
-  _T_46 = _RAND_1[62:0];
-  `endif // RANDOMIZE_REG_INIT
-  `ifdef RANDOMIZE_REG_INIT
-  _RAND_2 = {2{`RANDOM}};
-  _T_71 = _RAND_2[33:0];
-  `endif // RANDOMIZE_REG_INIT
-  `ifdef RANDOMIZE_REG_INIT
-  _RAND_3 = {1{`RANDOM}};
-  _T_74 = _RAND_3[0:0];
-  `endif // RANDOMIZE_REG_INIT
-  end
-`endif // RANDOMIZE
-  always @(posedge io_clk) begin
-    if (reset) begin
-      _T_43 <= 1'h0;
-    end else begin
-      _T_43 <= io_csb2dp_req_valid;
-    end
-    if (reset) begin
-      _T_46 <= 63'h0;
-    end else begin
-      if (io_csb2dp_req_valid) begin
-        _T_46 <= io_csb2dp_req_bits;
-      end
-    end
-    if (reset) begin
-      _T_71 <= 34'h0;
-    end else begin
-      if (_T_59) begin
-        _T_71 <= _T_63;
-      end else begin
-        if (_T_75) begin
-          _T_71 <= 34'h200000000;
-        end
-      end
-    end
-    if (reset) begin
-      _T_74 <= 1'h0;
-    end else begin
-      _T_74 <= _T_77;
-    end
-  end
-endmodule
 module NV_NVDLA_CMAC_reg_dft( // @[:@140.2]
   input         clock, // @[:@141.4]
   input         reset, // @[:@142.4]
@@ -379,30 +84,31 @@ module NV_NVDLA_CMAC_reg_dft( // @[:@140.2]
   wire [1:0] _T_98; // @[NV_NVDLA_CMAC_reg.scala 134:83:@213.4]
   wire [2:0] _T_99; // @[Cat.scala 30:58:@214.4]
   wire [2:0] _T_100; // @[NV_NVDLA_CMAC_reg.scala 134:28:@215.4]
-  reg [18:0] _T_108; // @[Reg.scala 11:16:@221.4]
+  wire [18:0] _T_105; // @[Bitwise.scala 72:12:@220.4]
+  reg [18:0] _T_109; // @[Reg.scala 19:20:@221.4]
   reg [31:0] _RAND_4;
-  reg [18:0] _T_110; // @[Reg.scala 11:16:@225.4]
+  reg [18:0] _T_111; // @[Reg.scala 19:20:@225.4]
   reg [31:0] _RAND_5;
-  reg [18:0] _T_112; // @[Reg.scala 11:16:@229.4]
+  reg [18:0] _T_113; // @[Reg.scala 19:20:@229.4]
   reg [31:0] _RAND_6;
   wire [11:0] _T_41; // @[NV_NVDLA_CMAC_reg.scala 54:26:@148.4 NV_NVDLA_CMAC_reg.scala 165:16:@276.4]
   wire [31:0] _GEN_4; // @[NV_NVDLA_CMAC_reg.scala 145:41:@236.4]
-  wire  _T_117; // @[NV_NVDLA_CMAC_reg.scala 145:41:@236.4]
-  wire  _T_123; // @[NV_NVDLA_CMAC_reg.scala 146:39:@239.4]
-  wire  _T_125; // @[NV_NVDLA_CMAC_reg.scala 146:83:@240.4]
-  wire  _T_126; // @[NV_NVDLA_CMAC_reg.scala 146:64:@241.4]
-  wire  _T_131; // @[NV_NVDLA_CMAC_reg.scala 147:83:@244.4]
-  wire  _T_132; // @[NV_NVDLA_CMAC_reg.scala 147:64:@245.4]
-  wire  _T_114; // @[NV_NVDLA_CMAC_reg.scala 144:25:@234.4 NV_NVDLA_CMAC_reg.scala 166:15:@277.4]
-  wire  _T_134; // @[NV_NVDLA_CMAC_reg.scala 150:31:@248.4]
-  wire  _T_138; // @[NV_NVDLA_CMAC_reg.scala 151:31:@252.4]
-  wire [31:0] _T_145; // @[Bitwise.scala 72:12:@257.4]
-  wire [31:0] _T_146; // @[NV_NVDLA_CMAC_reg.scala 153:43:@258.4]
-  wire [31:0] _T_150; // @[Bitwise.scala 72:12:@260.4]
-  wire [31:0] _T_151; // @[NV_NVDLA_CMAC_reg.scala 154:44:@261.4]
-  wire [31:0] _T_152; // @[NV_NVDLA_CMAC_reg.scala 153:59:@262.4]
-  wire [31:0] _T_156; // @[Bitwise.scala 72:12:@264.4]
-  wire [31:0] _T_157; // @[NV_NVDLA_CMAC_reg.scala 155:43:@265.4]
+  wire  _T_118; // @[NV_NVDLA_CMAC_reg.scala 145:41:@236.4]
+  wire  _T_124; // @[NV_NVDLA_CMAC_reg.scala 146:39:@239.4]
+  wire  _T_126; // @[NV_NVDLA_CMAC_reg.scala 146:83:@240.4]
+  wire  _T_127; // @[NV_NVDLA_CMAC_reg.scala 146:64:@241.4]
+  wire  _T_132; // @[NV_NVDLA_CMAC_reg.scala 147:83:@244.4]
+  wire  _T_133; // @[NV_NVDLA_CMAC_reg.scala 147:64:@245.4]
+  wire  _T_115; // @[NV_NVDLA_CMAC_reg.scala 144:25:@234.4 NV_NVDLA_CMAC_reg.scala 166:15:@277.4]
+  wire  _T_135; // @[NV_NVDLA_CMAC_reg.scala 150:31:@248.4]
+  wire  _T_139; // @[NV_NVDLA_CMAC_reg.scala 151:31:@252.4]
+  wire [31:0] _T_146; // @[Bitwise.scala 72:12:@257.4]
+  wire [31:0] _T_147; // @[NV_NVDLA_CMAC_reg.scala 153:43:@258.4]
+  wire [31:0] _T_151; // @[Bitwise.scala 72:12:@260.4]
+  wire [31:0] _T_152; // @[NV_NVDLA_CMAC_reg.scala 154:44:@261.4]
+  wire [31:0] _T_153; // @[NV_NVDLA_CMAC_reg.scala 153:59:@262.4]
+  wire [31:0] _T_157; // @[Bitwise.scala 72:12:@264.4]
+  wire [31:0] _T_158; // @[NV_NVDLA_CMAC_reg.scala 155:43:@265.4]
   NV_NVDLA_BASIC_REG_single NV_NVDLA_BASIC_REG_single ( // @[NV_NVDLA_CMAC_reg.scala 58:30:@151.4]
     .reset(NV_NVDLA_BASIC_REG_single_reset),
     .io_nvdla_core_clk(NV_NVDLA_BASIC_REG_single_io_nvdla_core_clk),
@@ -474,36 +180,37 @@ module NV_NVDLA_CMAC_reg_dft( // @[:@140.2]
   assign _T_98 = _T_77[1:0]; // @[NV_NVDLA_CMAC_reg.scala 134:83:@213.4]
   assign _T_99 = {_T_98,_T_96}; // @[Cat.scala 30:58:@214.4]
   assign _T_100 = io_dp2reg_done ? 3'h0 : _T_99; // @[NV_NVDLA_CMAC_reg.scala 134:28:@215.4]
+  assign _T_105 = _T_96 ? 19'h7ffff : 19'h0; // @[Bitwise.scala 72:12:@220.4]
   assign _T_41 = NV_NVDLA_CSB_LOGIC_io_reg_offset; // @[NV_NVDLA_CMAC_reg.scala 54:26:@148.4 NV_NVDLA_CMAC_reg.scala 165:16:@276.4]
   assign _GEN_4 = {{20'd0}, _T_41}; // @[NV_NVDLA_CMAC_reg.scala 145:41:@236.4]
-  assign _T_117 = _GEN_4 < 32'h8; // @[NV_NVDLA_CMAC_reg.scala 145:41:@236.4]
-  assign _T_123 = _GEN_4 >= 32'h8; // @[NV_NVDLA_CMAC_reg.scala 146:39:@239.4]
-  assign _T_125 = NV_NVDLA_BASIC_REG_single_io_producer == 1'h0; // @[NV_NVDLA_CMAC_reg.scala 146:83:@240.4]
-  assign _T_126 = _T_123 & _T_125; // @[NV_NVDLA_CMAC_reg.scala 146:64:@241.4]
-  assign _T_131 = NV_NVDLA_BASIC_REG_single_io_producer; // @[NV_NVDLA_CMAC_reg.scala 147:83:@244.4]
-  assign _T_132 = _T_123 & _T_131; // @[NV_NVDLA_CMAC_reg.scala 147:64:@245.4]
-  assign _T_114 = NV_NVDLA_CSB_LOGIC_io_reg_wr_en; // @[NV_NVDLA_CMAC_reg.scala 144:25:@234.4 NV_NVDLA_CMAC_reg.scala 166:15:@277.4]
-  assign _T_134 = _T_114 & _T_126; // @[NV_NVDLA_CMAC_reg.scala 150:31:@248.4]
-  assign _T_138 = _T_114 & _T_132; // @[NV_NVDLA_CMAC_reg.scala 151:31:@252.4]
-  assign _T_145 = _T_117 ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12:@257.4]
-  assign _T_146 = _T_145 & NV_NVDLA_BASIC_REG_single_io_reg_rd_data; // @[NV_NVDLA_CMAC_reg.scala 153:43:@258.4]
-  assign _T_150 = _T_126 ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12:@260.4]
-  assign _T_151 = _T_150 & NV_NVDLA_CMAC_REG_dual_io_reg_rd_data; // @[NV_NVDLA_CMAC_reg.scala 154:44:@261.4]
-  assign _T_152 = _T_146 | _T_151; // @[NV_NVDLA_CMAC_reg.scala 153:59:@262.4]
-  assign _T_156 = _T_132 ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12:@264.4]
-  assign _T_157 = _T_156 & NV_NVDLA_CMAC_REG_dual_1_io_reg_rd_data; // @[NV_NVDLA_CMAC_reg.scala 155:43:@265.4]
+  assign _T_118 = _GEN_4 < 32'h8; // @[NV_NVDLA_CMAC_reg.scala 145:41:@236.4]
+  assign _T_124 = _GEN_4 >= 32'h8; // @[NV_NVDLA_CMAC_reg.scala 146:39:@239.4]
+  assign _T_126 = NV_NVDLA_BASIC_REG_single_io_producer == 1'h0; // @[NV_NVDLA_CMAC_reg.scala 146:83:@240.4]
+  assign _T_127 = _T_124 & _T_126; // @[NV_NVDLA_CMAC_reg.scala 146:64:@241.4]
+  assign _T_132 = NV_NVDLA_BASIC_REG_single_io_producer; // @[NV_NVDLA_CMAC_reg.scala 147:83:@244.4]
+  assign _T_133 = _T_124 & _T_132; // @[NV_NVDLA_CMAC_reg.scala 147:64:@245.4]
+  assign _T_115 = NV_NVDLA_CSB_LOGIC_io_reg_wr_en; // @[NV_NVDLA_CMAC_reg.scala 144:25:@234.4 NV_NVDLA_CMAC_reg.scala 166:15:@277.4]
+  assign _T_135 = _T_115 & _T_127; // @[NV_NVDLA_CMAC_reg.scala 150:31:@248.4]
+  assign _T_139 = _T_115 & _T_133; // @[NV_NVDLA_CMAC_reg.scala 151:31:@252.4]
+  assign _T_146 = _T_118 ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12:@257.4]
+  assign _T_147 = _T_146 & NV_NVDLA_BASIC_REG_single_io_reg_rd_data; // @[NV_NVDLA_CMAC_reg.scala 153:43:@258.4]
+  assign _T_151 = _T_127 ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12:@260.4]
+  assign _T_152 = _T_151 & NV_NVDLA_CMAC_REG_dual_io_reg_rd_data; // @[NV_NVDLA_CMAC_reg.scala 154:44:@261.4]
+  assign _T_153 = _T_147 | _T_152; // @[NV_NVDLA_CMAC_reg.scala 153:59:@262.4]
+  assign _T_157 = _T_133 ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12:@264.4]
+  assign _T_158 = _T_157 & NV_NVDLA_CMAC_REG_dual_1_io_reg_rd_data; // @[NV_NVDLA_CMAC_reg.scala 155:43:@265.4]
   assign io_csb2cmac_a_req_ready = 1'h1; // @[NV_NVDLA_CMAC_reg.scala 164:25:@275.4]
   assign io_csb2cmac_a_resp_valid = NV_NVDLA_CSB_LOGIC_io_csb2dp_resp_valid; // @[NV_NVDLA_CMAC_reg.scala 164:25:@272.4]
   assign io_csb2cmac_a_resp_bits = NV_NVDLA_CSB_LOGIC_io_csb2dp_resp_bits; // @[NV_NVDLA_CMAC_reg.scala 164:25:@271.4]
   assign io_reg2dp_op_en = _T_77[2]; // @[NV_NVDLA_CMAC_reg.scala 135:21:@218.4]
   assign io_reg2dp_field_conv_mode = _T_35 ? NV_NVDLA_CMAC_REG_dual_1_io_field_conv_mode : NV_NVDLA_CMAC_REG_dual_io_field_conv_mode; // @[NV_NVDLA_CMAC_reg.scala 176:21:@282.4]
   assign io_reg2dp_field_proc_precision = _T_35 ? NV_NVDLA_CMAC_REG_dual_1_io_field_proc_precision : NV_NVDLA_CMAC_REG_dual_io_field_proc_precision; // @[NV_NVDLA_CMAC_reg.scala 176:21:@281.4]
-  assign io_slcg_op_en = _T_112; // @[NV_NVDLA_CMAC_reg.scala 137:19:@233.4]
+  assign io_slcg_op_en = _T_113; // @[NV_NVDLA_CMAC_reg.scala 137:19:@233.4]
   assign NV_NVDLA_BASIC_REG_single_reset = reset; // @[:@153.4]
   assign NV_NVDLA_BASIC_REG_single_io_nvdla_core_clk = io_nvdla_core_clk; // @[NV_NVDLA_CMAC_reg.scala 60:36:@154.4]
   assign NV_NVDLA_BASIC_REG_single_io_reg_offset = NV_NVDLA_CSB_LOGIC_io_reg_offset; // @[NV_NVDLA_CMAC_reg.scala 61:32:@155.4]
   assign NV_NVDLA_BASIC_REG_single_io_reg_wr_data = NV_NVDLA_CSB_LOGIC_io_reg_wr_data; // @[NV_NVDLA_CMAC_reg.scala 62:33:@156.4]
-  assign NV_NVDLA_BASIC_REG_single_io_reg_wr_en = _T_114 & _T_117; // @[NV_NVDLA_CMAC_reg.scala 63:31:@157.4]
+  assign NV_NVDLA_BASIC_REG_single_io_reg_wr_en = _T_115 & _T_118; // @[NV_NVDLA_CMAC_reg.scala 63:31:@157.4]
   assign NV_NVDLA_BASIC_REG_single_io_consumer = _T_35; // @[NV_NVDLA_CMAC_reg.scala 65:30:@158.4]
   assign NV_NVDLA_BASIC_REG_single_io_status_0 = _T_58 ? 2'h0 : _T_64; // @[NV_NVDLA_CMAC_reg.scala 66:30:@159.4]
   assign NV_NVDLA_BASIC_REG_single_io_status_1 = _T_67 ? 2'h0 : _T_73; // @[NV_NVDLA_CMAC_reg.scala 67:30:@160.4]
@@ -511,19 +218,19 @@ module NV_NVDLA_CMAC_reg_dft( // @[:@140.2]
   assign NV_NVDLA_CMAC_REG_dual_io_nvdla_core_clk = io_nvdla_core_clk; // @[NV_NVDLA_CMAC_reg.scala 75:37:@166.4]
   assign NV_NVDLA_CMAC_REG_dual_io_reg_offset = NV_NVDLA_CSB_LOGIC_io_reg_offset; // @[NV_NVDLA_CMAC_reg.scala 76:33:@167.4]
   assign NV_NVDLA_CMAC_REG_dual_io_reg_wr_data = NV_NVDLA_CSB_LOGIC_io_reg_wr_data; // @[NV_NVDLA_CMAC_reg.scala 77:34:@168.4]
-  assign NV_NVDLA_CMAC_REG_dual_io_reg_wr_en = _T_134 & _T_58; // @[NV_NVDLA_CMAC_reg.scala 78:32:@169.4]
+  assign NV_NVDLA_CMAC_REG_dual_io_reg_wr_en = _T_135 & _T_58; // @[NV_NVDLA_CMAC_reg.scala 78:32:@169.4]
   assign NV_NVDLA_CMAC_REG_dual_io_op_en = _T_50; // @[NV_NVDLA_CMAC_reg.scala 80:28:@170.4]
   assign NV_NVDLA_CMAC_REG_dual_1_reset = reset; // @[:@175.4]
   assign NV_NVDLA_CMAC_REG_dual_1_io_nvdla_core_clk = io_nvdla_core_clk; // @[NV_NVDLA_CMAC_reg.scala 88:37:@176.4]
   assign NV_NVDLA_CMAC_REG_dual_1_io_reg_offset = NV_NVDLA_CSB_LOGIC_io_reg_offset; // @[NV_NVDLA_CMAC_reg.scala 89:33:@177.4]
   assign NV_NVDLA_CMAC_REG_dual_1_io_reg_wr_data = NV_NVDLA_CSB_LOGIC_io_reg_wr_data; // @[NV_NVDLA_CMAC_reg.scala 90:34:@178.4]
-  assign NV_NVDLA_CMAC_REG_dual_1_io_reg_wr_en = _T_138 & _T_67; // @[NV_NVDLA_CMAC_reg.scala 91:32:@179.4]
+  assign NV_NVDLA_CMAC_REG_dual_1_io_reg_wr_en = _T_139 & _T_67; // @[NV_NVDLA_CMAC_reg.scala 91:32:@179.4]
   assign NV_NVDLA_CMAC_REG_dual_1_io_op_en = _T_55; // @[NV_NVDLA_CMAC_reg.scala 93:28:@180.4]
   assign NV_NVDLA_CSB_LOGIC_reset = reset; // @[:@269.4]
   assign NV_NVDLA_CSB_LOGIC_io_clk = io_nvdla_core_clk; // @[NV_NVDLA_CMAC_reg.scala 163:22:@270.4]
   assign NV_NVDLA_CSB_LOGIC_io_csb2dp_req_valid = io_csb2cmac_a_req_valid; // @[NV_NVDLA_CMAC_reg.scala 164:25:@274.4]
   assign NV_NVDLA_CSB_LOGIC_io_csb2dp_req_bits = io_csb2cmac_a_req_bits; // @[NV_NVDLA_CMAC_reg.scala 164:25:@273.4]
-  assign NV_NVDLA_CSB_LOGIC_io_reg_rd_data = _T_152 | _T_157; // @[NV_NVDLA_CMAC_reg.scala 168:30:@279.4]
+  assign NV_NVDLA_CSB_LOGIC_io_reg_rd_data = _T_153 | _T_158; // @[NV_NVDLA_CMAC_reg.scala 168:30:@279.4]
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
 `define RANDOMIZE
 `endif
@@ -566,15 +273,15 @@ module NV_NVDLA_CMAC_reg_dft( // @[:@140.2]
   `endif // RANDOMIZE_REG_INIT
   `ifdef RANDOMIZE_REG_INIT
   _RAND_4 = {1{`RANDOM}};
-  _T_108 = _RAND_4[18:0];
+  _T_109 = _RAND_4[18:0];
   `endif // RANDOMIZE_REG_INIT
   `ifdef RANDOMIZE_REG_INIT
   _RAND_5 = {1{`RANDOM}};
-  _T_110 = _RAND_5[18:0];
+  _T_111 = _RAND_5[18:0];
   `endif // RANDOMIZE_REG_INIT
   `ifdef RANDOMIZE_REG_INIT
   _RAND_6 = {1{`RANDOM}};
-  _T_112 = _RAND_6[18:0];
+  _T_113 = _RAND_6[18:0];
   `endif // RANDOMIZE_REG_INIT
   end
 `endif // RANDOMIZE
@@ -617,12 +324,24 @@ module NV_NVDLA_CMAC_reg_dft( // @[:@140.2]
         _T_77 <= _T_99;
       end
     end
-    if (_T_96) begin
-      _T_108 <= 19'h7ffff;
+    if (reset) begin
+      _T_109 <= 19'h0;
     end else begin
-      _T_108 <= 19'h0;
+      if (_T_96) begin
+        _T_109 <= 19'h7ffff;
+      end else begin
+        _T_109 <= 19'h0;
+      end
     end
-    _T_110 <= _T_108;
-    _T_112 <= _T_110;
+    if (reset) begin
+      _T_111 <= 19'h0;
+    end else begin
+      _T_111 <= _T_109;
+    end
+    if (reset) begin
+      _T_113 <= 19'h0;
+    end else begin
+      _T_113 <= _T_111;
+    end
   end
 endmodule
