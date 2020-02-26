@@ -82,7 +82,7 @@ output [1:0] reg2dp_proc_precision;
 output [3+32/2 -1:0] slcg_op_en;
 NV_NVDLA_CMAC_reg_dft reg_dft(
     .io_nvdla_core_clk(nvdla_core_clk),
-    .reset(nvdla_core_rstn),
+    .reset(!nvdla_core_rstn),
     .io_csb2cmac_a_req_bits(csb2cmac_a_req_pd),
     .io_csb2cmac_a_req_ready(csb2cmac_a_req_prdy),
     .io_csb2cmac_a_req_valid(csb2cmac_a_req_pvld),
