@@ -21,17 +21,10 @@ input direct_reset_;
 input test_mode;
 output synced_rstn;
 input nvdla_clk;
-  sync_reset sync_reset_synced_rstn (
-     .clk (nvdla_clk) //|< i
-    ,.inreset_ (dla_reset_rstn) //|< i
-    ,.direct_reset_ (direct_reset_) //|< i
-    ,.test_mode (test_mode) //|< i
-    ,.outreset_ (synced_rstn) //|> o
-    );
-//&Instance sync3d_reset u_vi_sync_reset;
-// &Connect inreset_ dla_reset_rstn;
-// &Connect test_mode test_mode;
-// &Connect direct_reset_ direct_reset_;
-// &Connect clk nvdla_clk;
-// &Connect outreset_ synced_rstn;
+NV_soDLA_reset_dft NV_soDLA_reset_dft(
+    .io_dla_reset_rstn(dla_reset_rstn),
+    .io_direct_reset_(direct_reset_),
+    .io_test_mode(test_mode),
+    .io_synced_rstn(synced_rstn),
+    .io_nvdla_clk(nvdla_clk));
 endmodule // NV_NVDLA_reset

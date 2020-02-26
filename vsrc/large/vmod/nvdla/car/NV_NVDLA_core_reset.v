@@ -23,53 +23,12 @@ input test_mode;
 output synced_rstn;
 input core_reset_rstn;
 input nvdla_clk;
-wire synced_core_rstn;
-wire synced_dla_rstn;
-reg combined_rstn;
-  sync_reset sync_reset_synced_dla_rstn (
-     .clk (nvdla_clk) //|< i
-    ,.inreset_ (dla_reset_rstn) //|< i
-    ,.direct_reset_ (direct_reset_) //|< i
-    ,.test_mode (test_mode) //|< i
-    ,.outreset_ (synced_dla_rstn) //|> w
-    );
-//&Instance sync3d_reset u_car_rstn_sync;
-// &Connect inreset_ dla_reset_rstn;
-// &Connect test_mode test_mode;
-// &Connect direct_reset_ direct_reset_;
-// &Connect clk nvdla_clk;
-// &Connect outreset_ synced_dla_rstn;
-  sync_reset sync_reset_synced_core_rstn (
-     .clk (nvdla_clk) //|< i
-    ,.inreset_ (core_reset_rstn) //|< i
-    ,.direct_reset_ (direct_reset_) //|< i
-    ,.test_mode (test_mode) //|< i
-    ,.outreset_ (synced_core_rstn) //|> w
-    );
-//&Instance sync3d_reset u_falcon_rstn_sync;
-// &Connect inreset_ core_reset_rstn;
-// &Connect test_mode test_mode;
-// &Connect direct_reset_ direct_reset_;
-// &Connect clk nvdla_clk;
-// &Connect outreset_ synced_core_rstn;
-//assign combined_rstn = synced_dla_rstn & synced_core_rstn;
-always @(posedge nvdla_clk or negedge synced_dla_rstn) begin
-  if (!synced_dla_rstn) begin
-    combined_rstn <= 1'b0;
-  end else begin
-  combined_rstn <= synced_dla_rstn & synced_core_rstn;
-  end
-end
-  sync_reset sync_reset_synced_rstn (
-     .clk (nvdla_clk) //|< i
-    ,.inreset_ (combined_rstn) //|< r
-    ,.direct_reset_ (direct_reset_) //|< i
-    ,.test_mode (test_mode) //|< i
-    ,.outreset_ (synced_rstn) //|> o
-    );
-// &Connect inreset_ combined_rstn;
-// &Connect test_mode test_mode;
-// &Connect direct_reset_ direct_reset_;
-// &Connect clk nvdla_clk;
-// &Connect outreset_ synced_rstn;
+
+NV_soDLA_core_reset_dft NV_soDLA_core_reset_dft(
+    .io_dla_reset_rstn(dla_reset_rstn),
+    .io_direct_reset_(direct_reset_),
+    .io_test_mode(test_mode),
+    .io_synced_rstn(synced_rstn),
+    .io_core_reset_rstn(core_reset_rstn),
+    .io_nvdla_clk(nvdla_clk));
 endmodule // NV_NVDLA_core_reset
