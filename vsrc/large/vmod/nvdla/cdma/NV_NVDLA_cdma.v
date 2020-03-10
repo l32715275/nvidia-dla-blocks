@@ -284,7 +284,7 @@ input global_clk_ovr_on_sync;
 input tmc2slcg_disable_clock_gating;
 
 
-wrapper wrapper(
+wrapper_cdma wrapper(
   .cdma_dat2mcif_rd_req_ready(cdma_dat2mcif_rd_req_ready),
   .cdma_wt2mcif_rd_req_ready(cdma_wt2mcif_rd_req_ready),
   .csb2cdma_req_pd(csb2cdma_req_pd),

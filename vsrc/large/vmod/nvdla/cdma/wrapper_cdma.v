@@ -1,5 +1,5 @@
 
-module wrapper(
+module wrapper_cdma(
 	//===================same to NV_NVDLA_cdma.v========================
 	cdma_dat2mcif_rd_req_ready
  ,cdma_wt2mcif_rd_req_ready
