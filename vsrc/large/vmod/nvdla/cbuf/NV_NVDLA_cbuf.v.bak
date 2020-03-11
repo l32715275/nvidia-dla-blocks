@@ -18,7 +18,7 @@
     `define CBUF_NO_SUPPORT_READ_JUMPING
 //ram case could be 0/1/2/3/4/5  0:1ram/bank; 1:1*2ram/bank; 2:2*1ram/bank; 3:2*2ram/bank  4:4*1ram/bank  5:4*2ram/bank
 `define CDMA2CBUF_DEBUG_PRINT //open debug print
-//`include "simulate_x_tick.vh"
+`include "simulate_x_tick.vh"
 module NV_NVDLA_cbuf (
    nvdla_core_clk //|< i
   ,nvdla_core_rstn //|< i
@@ -140,12 +140,11 @@ wrapper_cbuf wrapper(
   .sc2buf_wt_rd_addr        (sc2buf_wt_rd_addr),//|< i
   .sc2buf_wt_rd_en          (sc2buf_wt_rd_en),//|< i
   .sc2buf_wt_rd_data        (sc2buf_wt_rd_data),//|> o
-  .sc2buf_wt_rd_valid       (sc2buf_wt_rd_valid)//|> o
+  .sc2buf_wt_rd_valid       (sc2buf_wt_rd_valid),//|> o
   `ifdef CBUF_WEIGHT_COMPRESSED
-  ,.sc2buf_wmb_rd_addr       (sc2buf_wmb_rd_addr),//|< i
+  .sc2buf_wmb_rd_addr       (sc2buf_wmb_rd_addr),//|< i
   .sc2buf_wmb_rd_en         (sc2buf_wmb_rd_en),//|< i
   .sc2buf_wmb_rd_data       (sc2buf_wmb_rd_data),//|> o
   .sc2buf_wmb_rd_valid      (sc2buf_wmb_rd_valid)//|> o
-  `endif
  );
 endmodule // NV_NVDLA_cbuf

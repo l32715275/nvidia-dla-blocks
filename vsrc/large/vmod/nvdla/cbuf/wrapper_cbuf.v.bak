@@ -114,7 +114,7 @@ output [512 -1:0] sc2buf_wmb_rd_data;
   assign io_cdma2buf_wr_addr_1=cdma2buf_wr_addr1; // @[:@486.4]
   assign io_cdma2buf_wr_data_0=cdma2buf_wr_data0; // @[:@486.4]
   assign io_cdma2buf_wr_data_1=cdma2buf_wr_data1; // @[:@486.4]
-  assign io_sc2buf_dat_rd_addr_valid=sc2buf_dat_rd_en; // @[:@486.4]
+  assign io_sc2buf_dat_rd_addr_valid== sc2buf_dat_rd_en; // @[:@486.4]
   assign io_sc2buf_dat_rd_addr_bits=sc2buf_dat_rd_addr; // @[:@486.4]
   assign io_sc2buf_dat_rd_data_valid=sc2buf_dat_rd_valid; // @[:@486.4]
   assign io_sc2buf_dat_rd_data_bits=sc2buf_dat_rd_data; // @[:@486.4]
